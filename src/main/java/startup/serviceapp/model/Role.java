@@ -1,4 +1,4 @@
-package ua.startupserviceapp.model;
+package startup.serviceapp.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
