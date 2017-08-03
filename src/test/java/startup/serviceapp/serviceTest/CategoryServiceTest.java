@@ -1,4 +1,4 @@
-package startup.serviceapp.ServiceTest;
+package startup.serviceapp.serviceTest;
 
 import org.junit.Assert;
 import org.junit.Before;

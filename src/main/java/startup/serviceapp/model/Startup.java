@@ -163,6 +163,13 @@ public class Startup {
 		this.category = category;
 	}
 
+	public Startup(String name) {
+		this.name = name;
+	}
+
+	public Startup() {
+	}
+
 	public Startup(String name, Blob image, Blob attachment, int currnet_investment, int needed_investment, String discription, Double rating, String status, Category category) {
 		this.name = name;
 		this.image = image;
