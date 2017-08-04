@@ -218,6 +218,6 @@ public class StartupServiceImp implements StartupService {
 		d = d*10;
 		d= Math.round(d);
 		d = d/10;
-		return 10;
+		return d;
 	}
 }
