@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+       xmlns:beans="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security/xsd">
+
+    <!--Configuration of user's acces to web pages -->
+    <http auto-config="true">
+        <intercept-url pattern="/"
+                       access="hasAnyRole('ROLE_FOUNDER', 'ROLE_INVESTOR', 'ROLE_ADMIN', 'ROLE_ANONYMOUS')"/>
+        <intercept-url pattern="/welcome"
+                       access="hasAnyRole('ROLE_FOUNDER', 'ROLE_INVESTOR', 'ROLE_ADMIN', 'ROLE_ANONYMOUS')"/>
+        <intercept-url pattern="/home"
+                       access="hasAnyRole('ROLE_FOUNDER', 'ROLE_INVESTOR', 'ROLE_ADMIN', 'ROLE_ANONYMOUS')"/>
+        <intercept-url pattern="/startupdetails"
+                       access="hasAnyRole('ROLE_FOUNDER', 'ROLE_INVESTOR', 'ROLE_ADMIN', 'ROLE_ANONYMOUS')"/>
+        <intercept-url pattern="/allstartups"
+                       access="hasAnyRole('ROLE_FOUNDER', 'ROLE_INVESTOR', 'ROLE_ADMIN', 'ROLE_ANONYMOUS')"/>
+        <intercept-url pattern="/startupedit"
+                       access="hasAnyRole('ROLE_FOUNDER', 'ROLE_INVESTOR', 'ROLE_ADMIN', 'ROLE_ANONYMOUS')"/>
+        <intercept-url pattern="/underdetails"
+                       access="hasAnyRole('ROLE_FOUNDER', 'ROLE_INVESTOR', 'ROLE_ADMIN', 'ROLE_ANONYMOUS')"/>
+        <intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/mystartups"
+                       access="hasAnyRole('ROLE_FOUNDER', 'ROLE_INVESTOR', 'ROLE_ADMIN')"/>
+
+        <form-login login-page="/login" default-target-url="/allstartups" authentication-failure-url="/login?error"
+                    username-parameter="login" password-parameter="password"/>
+        <logout logout-success-url="/login?logout"/>
+    </http>
+    <!-- Password encode -->
+    <beans:bean id="encoder"
+                class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+        <beans:constructor-arg name="strength" value="11"/>
+    </beans:bean>
+    <!-- User details serviuce implementation-->
+    <beans:bean id="userDetailsService"
+                class="startup.serviceapp.service.UserDetailsServiceImpl">
+    </beans:bean>
+    <!-- Authentication manager-->
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider user-service-ref="userDetailsService">
+            <password-encoder ref="encoder"></password-encoder>
+        </authentication-provider>
+    </authentication-manager>
+
+
+
+</beans:beans>

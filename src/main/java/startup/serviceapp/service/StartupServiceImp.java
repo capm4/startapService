@@ -1,6 +1,7 @@
 package startup.serviceapp.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import startup.serviceapp.model.Startup;
 import startup.serviceapp.model.StartupEvaluation;
@@ -20,6 +21,7 @@ import java.util.stream.Collectors;
  * @version 1.0
  */
 
+@Service
 public class StartupServiceImp implements StartupService {
 
 	private StartupRepository startupRepository;
@@ -220,4 +222,5 @@ public class StartupServiceImp implements StartupService {
 		d = d/10;
 		return d;
 	}
+
 }
