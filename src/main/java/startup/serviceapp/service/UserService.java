@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 public interface UserService {
 	void save(UserDB userDB);
 	void saveWithoutEncode(UserDB userDB);
-	UserDB findByLoggin(String loggin);
+	UserDB findByLogin(String login);
 	public UserDB getAuthenticatedUser(HttpServletRequest request);
 	public boolean isAuthenticated(HttpServletRequest request);
 	public boolean isAdmin(HttpServletRequest request);

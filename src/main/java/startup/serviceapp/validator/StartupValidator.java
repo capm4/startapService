@@ -14,6 +14,7 @@ import startup.serviceapp.service.StartupService;
  * @author  Alexander Kruglov
  * @version 1.0
  */
+
 @Component
 public class StartupValidator implements Validator {
 

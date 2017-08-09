@@ -41,8 +41,8 @@ public class UserServiceImp implements UserService {
 
 	@Override
 	@Transactional
-	public UserDB findByLoggin(String loggin) {
-		return userDBRepository.findByLogin(loggin);
+	public UserDB findByLogin(String login) {
+		return userDBRepository.findByLogin(login);
 	}
 
 	@Override

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context 
-        http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- MVC configuratiuon file -->
-    <import resource="appcomfig-mvc.xml"/>
+    <!--MVC configuration file-->
+    <import resource="appconfig-mvc.xml"/>
 
-    <!-- Data configuration file-->
+    <!--Data configuration file-->
     <import resource="appconfig-data.xml"/>
 
-    <!-- Security configuration file -->
+    <!--Security configuration file-->
     <import resource="appconfig-security.xml"/>
-    
+
     <context:component-scan base-package="startup.serviceapp.*"/>
+
     <!--Database properties file-->
     <context:property-placeholder location="classpath:databese.properties"/>
+
 </beans>
