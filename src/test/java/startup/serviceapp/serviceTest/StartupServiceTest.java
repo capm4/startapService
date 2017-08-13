@@ -172,7 +172,7 @@ public class StartupServiceTest {
 		testList.add(startup2);
 		when(startupRepository.findAll()).thenReturn(testList);
 		//use
-		List<Startup> listToCheck = startupService.getAllSrtartups();
+		List<Startup> listToCheck = startupService.getAllStartups();
 		//check
 		verify(startupRepository, times(1)).findAll();
 		assertEquals(testList, listToCheck);

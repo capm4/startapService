@@ -98,14 +98,14 @@ public class StartupServiceImp implements StartupService {
 
 	@Override
 	@Transactional
-	public List<Startup> getAllSrtartups() {
+	public List<Startup> getAllStartups() {
 		return startupRepository.findAll();
 	}
 
 	@Override
 	public List<Startup> getAllApproveStartups() {
 		List<Startup> startups;
-		startups = this.getAllSrtartups().stream()
+		startups = this.getAllStartups().stream()
 				.filter(startup -> startup.getStatus().equalsIgnoreCase("Approve"))
 				.collect(Collectors.toList());
 		return startups;
@@ -114,7 +114,7 @@ public class StartupServiceImp implements StartupService {
 	@Override
 	public List<Startup> getAllBusinessStartups() {
 		List<Startup> startups;
-		startups = this.getAllSrtartups().stream()
+		startups = this.getAllStartups().stream()
 				.filter(startup -> startup.getCategory().getName().equalsIgnoreCase("Business (shares) for sale"))
 				.collect(Collectors.toList());
 		return startups;
@@ -123,7 +123,7 @@ public class StartupServiceImp implements StartupService {
 	@Override
 	public List<Startup> getAllInvestmentStartups() {
 		List<Startup> startups;
-		startups = this.getAllSrtartups().stream()
+		startups = this.getAllStartups().stream()
 				.filter(startup -> startup.getCategory().getName().equalsIgnoreCase("Investment projects"))
 				.collect(Collectors.toList());
  		return startups;
@@ -132,7 +132,7 @@ public class StartupServiceImp implements StartupService {
 	@Override
 	public List<Startup> getAllMobileStartups() {
 		List<Startup> startups;
-		startups = this.getAllSrtartups().stream()
+		startups = this.getAllStartups().stream()
 				.filter(startup -> startup.getCategory().getName().equalsIgnoreCase("Mobile applications"))
 				.collect(Collectors.toList());
 		return startups;
@@ -154,7 +154,7 @@ public class StartupServiceImp implements StartupService {
 	@Override
 	public List<Startup> getStartupsByName(String name) {
 		List<Startup> startups;
-		startups = this.getAllSrtartups().stream()
+		startups = this.getAllStartups().stream()
 				.filter(startup -> startup.getName().equalsIgnoreCase(name))
 				.collect(Collectors.toList());
 		return startups;

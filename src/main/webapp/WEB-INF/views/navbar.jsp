@@ -41,6 +41,28 @@
         </ul>
         <ul class="nav navbar-nav">
         </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="<c:url value="/mystartups"/>">My Startups</a> </li>
+        </ul>
+        <form id="logoutForm" method="post" action="${contextPath}/logout">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        </form>
+        <div id="navbar" class="navbar-collapse collapse">
+            <form class="navbar-form navbar-rigth">
+                <c:if test="${!empty pageContext.request.getRemoteUser()}">
+                    <a onclick="document.forms['logoutForm'].submit()" class="btn btn-primary">Log out</a>
+                    <a href="<c:url value="/userdetails"/>" type="submit" class="btn btn-primary">My info</a>
+                </c:if>
+                <c:if test="${empty pageContext.request.getRemoteUser()}">
+                    <a href="<c:url value="/login"/>" class="btn btn-primary">Log in</a>
+                </c:if>
+                <c:choose>
+                    <c:when test="${pageContext.request.isUserInRole('ROLE_ADMINE')}">
+                        <<a href="<c:url value="/admin"/>" class="btn btn-primary">Admin</a>
+                    </c:when>
+                </c:choose>
+            </form>
+        </div>
     </div>
 </nav>
 

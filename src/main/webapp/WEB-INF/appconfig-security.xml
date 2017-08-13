@@ -26,9 +26,14 @@
         <intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/mystartups"
                        access="hasAnyRole('ROLE_FOUNDER', 'ROLE_INVESTOR', 'ROLE_ADMIN')"/>
+        <intercept-url pattern="/login.jsp"
+                       access="permitAll"/>
 
-        <form-login login-page="/login" default-target-url="/allstartups" authentication-failure-url="/login?error"
+        <form-login login-page="/login" default-target-url="/allstartups"
+                    always-use-default-target='true'
+                    authentication-failure-url="/login?error"
                     username-parameter="login" password-parameter="password"/>
+        <csrf disabled="true"/>
         <logout logout-success-url="/login?logout"/>
     </http>
     <!-- Password encode -->
@@ -36,17 +41,14 @@
                 class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
         <beans:constructor-arg name="strength" value="11"/>
     </beans:bean>
-    <!-- User details serviuce implementation-->
+    <!-- User details service implementation-->
     <beans:bean id="userDetailsService"
                 class="startup.serviceapp.service.UserDetailsServiceImpl">
     </beans:bean>
     <!-- Authentication manager-->
     <authentication-manager alias="authenticationManager">
         <authentication-provider user-service-ref="userDetailsService">
-            <password-encoder ref="encoder"></password-encoder>
+            <password-encoder ref="encoder" ></password-encoder>
         </authentication-provider>
     </authentication-manager>
-
-
-
 </beans:beans>

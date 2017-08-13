@@ -18,6 +18,6 @@
     <context:component-scan base-package="startup.serviceapp.*"/>
 
     <!--Database properties file-->
-    <context:property-placeholder location="classpath:databese.properties"/>
+    <context:property-placeholder location="classpath:database.properties"/>
 
 </beans>

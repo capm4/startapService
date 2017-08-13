@@ -9,6 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 /**
@@ -27,7 +28,10 @@ public class SecurityServiceImp implements SecurityService {
 
 	@Autowired
 	private UserDetailsService userDetailsService;
+
+
 	@Override
+	@Transactional
 	public String getLoggedUserLogin() {
 		Object userDetails = SecurityContextHolder.getContext().getAuthentication().getDetails();
 		if (userDetails instanceof UserDetails) {
@@ -37,6 +41,7 @@ public class SecurityServiceImp implements SecurityService {
 	}
 
 	@Override
+	@Transactional
 	public void autoLogin(String login, String password) {
 		UserDetails userDetails = userDetailsService.loadUserByUsername(login);
 		UsernamePasswordAuthenticationToken authenticationToken =

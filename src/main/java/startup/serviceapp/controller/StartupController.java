@@ -68,6 +68,14 @@ public class StartupController extends HttpServlet {
 		return "allstartups";
 	}
 
+	@RequestMapping(value = "mystartups", method = RequestMethod.GET)
+	public String mystartups(Model model, HttpServletRequest request){
+		model.addAttribute("startup", new Startup());
+		model.addAttribute("user", this.userService.getAuthenticatedUser(request));
+		model.addAttribute("allUserStartups", this.startupService.getStartupsByUser(userService.getAuthenticatedUser(request)));
+		return "mystartups";
+	}
+
 	@RequestMapping(value = "/error")
 	public  String errorPage(){
 		return "error";

@@ -32,7 +32,7 @@ public interface StartupService {
 
 	Startup findByName (String name);
 
-	List<Startup> getAllSrtartups();
+	List<Startup> getAllStartups();
 
 	List<Startup> getAllApproveStartups();
 
