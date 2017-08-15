@@ -59,6 +59,7 @@ public class Startup {
 			inverseJoinColumns = {@JoinColumn(name = "user_id")}
 	)
 	private Set<UserDB> users = new HashSet<>();
+	private String description;
 
 	public long getId() {
 		return id;
@@ -214,5 +215,9 @@ public class Startup {
 				", status='" + status + '\'' +
 				", category=" + category +
 				'}';
+	}
+
+	public String getDescription() {
+		return description;
 	}
 }

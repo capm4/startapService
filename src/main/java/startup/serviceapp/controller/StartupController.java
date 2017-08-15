@@ -76,6 +76,26 @@ public class StartupController extends HttpServlet {
 		return "mystartups";
 	}
 
+	@RequestMapping("/remove/{id}")
+	public String removeStartup(@PathVariable("id")Long id){
+		this.startupService.deleteById(id);
+		return "redirect:allstartups";
+	}
+
+	@RequestMapping(value = "/startupedit/{id}", method = RequestMethod.GET)
+	public String editStartup(@PathVariable("id") Long id, Model model, HttpServletRequest request){
+		if(this.userService.isStartupOwner(id, request)){
+			model.addAttribute("startup", this.startupService.getStartupById(id));
+			model.addAttribute("is_authenticated", this.userService.isAuthenticated(request));
+			model.addAttribute("categories", this.categoryService.getAllCategories());
+			model.addAttribute("category_names", this.categoryService.getAllCategoryNames());
+			return "startupedit";
+		}
+		else{
+			return "redirect:/startupdetails/{id}";
+		}
+	}
+
 	@RequestMapping(value = "/error")
 	public  String errorPage(){
 		return "error";
