@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import startup.serviceapp.model.Category;
 import startup.serviceapp.model.Startup;
 import startup.serviceapp.service.CategoryService;
 import startup.serviceapp.service.StartupService;
@@ -95,6 +96,72 @@ public class StartupController extends HttpServlet {
 			return "redirect:/startupdetails/{id}";
 		}
 	}
+
+	@RequestMapping(value = "startupedit/{id}", method = RequestMethod.POST)
+	public String editStartup(@ModelAttribute("startup") Startup startup) {
+		Category category = categoryService.getCategoryByName(startup.getCategory().getName());
+		startup.setCategory(category);
+		Startup startupDB = startupService.getStartupById(startup.getId());
+		startup.setUsers(startupDB.getUsers());
+		this.startupService.edit(startup);
+		return "redirect:/startupdetails/{id}";
+	}
+
+	@RequestMapping(value = "/startupdetails/{id}")
+	public String startupDetails(@PathVariable("id") long id, Model model, HttpServletRequest request){
+		model.addAttribute("startup", this.startupService.getStartupById(id));
+		model.addAttribute("is_admin", this.userService.isAdmin(request));
+		model.addAttribute("is_owner", this.userService.isStartupOwner(id,request));
+		model.addAttribute("is_authenticated", this.userService.isAuthenticated(request));
+		model.addAttribute("average_rating", this.startupService.averageRating(id));
+		model.addAttribute("votes_count", this.startupService.votesCount(id));
+		return "startupdetails";
+	}
+
+	@RequestMapping(value = "/startupdetails/{id}", method = RequestMethod.POST)
+	public String startupInvest(@RequestParam("investment") int investment, @PathVariable("id") long startupId, HttpServletRequest request ){
+		if (investment <= 0){
+			return "redirect:/allstartups";
+		}
+		if(userService.isAuthenticated(request)){
+			this.startupService.invest(startupId, investment);
+			return "redirect:/allstartups";
+		}
+		else{
+			return "redirect:/login";
+		}
+	}
+
+	@RequestMapping(value = "/startupdetails/sendforapprove/{id}")
+	public String sendForApprove(@PathVariable("id") long id){
+		this.startupService.ready(id);
+		return "redirect:/startupdetails/{id}";
+	}
+
+	@RequestMapping(value = "/startupdetails/approve/{id}")
+	public String approve(@PathVariable("id") long id){
+		this.startupService.approve(id);
+		return "redirect:/startupdetails/{id}";
+	}
+
+	@RequestMapping(value = "/startupdetails/{id}")
+	public String reject(@PathVariable("id") long id){
+		this.startupService.reject(id);
+		return "redirect:/startupdetails/{id}";
+	}
+
+	@RequestMapping(value = "/startupdetails/delete/{id}")
+	public String delete(@PathVariable("id") long id){
+		this.startupService.deleteById(id);
+		return "redirect:/allstartups";
+	}
+
+	@RequestMapping(value = "/startupdetails/close/{id}")
+	public String close(@PathVariable("id") long id){
+		this.startupService.close(id);
+		return "redirect:/startupdetails/{id}";
+	}
+
 
 	@RequestMapping(value = "/error")
 	public  String errorPage(){
