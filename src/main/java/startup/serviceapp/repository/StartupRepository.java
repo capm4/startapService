@@ -20,6 +20,6 @@ public interface StartupRepository extends JpaRepository<Startup, Long> {
 	Startup findByName (String name);
 	Startup findById (long id);
 
-	@Query("SELECT s from Startup s where s.name like :key or s.discription like :key")
+	@Query("SELECT s from Startup s where s.name like :key or s.description like :key")
 	Collection<Startup> findByKeyWorld(@Param("key") String key);
 }

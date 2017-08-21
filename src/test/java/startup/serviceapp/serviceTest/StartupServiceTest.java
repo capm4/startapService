@@ -143,7 +143,7 @@ public class StartupServiceTest {
 		startupService.close(startup.getId());
 		//check
 		verify(startupRepository,times(1)).findById(anyLong());
-		assertEquals(0, startupRepository.save(startup).getCurrnet_investment());
+		assertEquals(0, startupRepository.save(startup).getCurrent_investment());
 		assertEquals("Closed", startupRepository.save(startup).getStatus());
 		verify(startupRepository, times(3)).save(startup);
 	}

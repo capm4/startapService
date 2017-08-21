@@ -32,13 +32,13 @@ public class Startup {
 	private Blob attachment;
 
 	@Column(name = "current_investment")
-	private int currnet_investment;
+	private int current_investment;
 
-	@Column(name = "nedded_investment", nullable = false)
+	@Column(name = "needed_investment", nullable = false)
 	private int needed_investment;
 
-	@Column(name = "discription")
-	private String discription;
+	@Column(name = "description")
+	private String description;
 
 	@Column(name = "rating")
 	private Double rating;
@@ -59,7 +59,6 @@ public class Startup {
 			inverseJoinColumns = {@JoinColumn(name = "user_id")}
 	)
 	private Set<UserDB> users = new HashSet<>();
-	private String description;
 
 	public long getId() {
 		return id;
@@ -93,12 +92,12 @@ public class Startup {
 		this.attachment = attachment;
 	}
 
-	public int getCurrnet_investment() {
-		return currnet_investment;
+	public int getCurrent_investment() {
+		return current_investment;
 	}
 
-	public void setCurrnet_investment(int currnet_investment) {
-		this.currnet_investment = currnet_investment;
+	public void setCurrent_investment(int current_investment) {
+		this.current_investment = current_investment;
 	}
 
 	public int getNeeded_investment() {
@@ -109,12 +108,12 @@ public class Startup {
 		this.needed_investment = needed_investment;
 	}
 
-	public String getDiscription() {
-		return discription;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDiscription(String discription) {
-		this.discription = discription;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public Double getRating() {
@@ -157,10 +156,10 @@ public class Startup {
 		this.users = users;
 	}
 
-	public Startup(String name, int needed_investment, String discription, Category category) {
+	public Startup(String name, int needed_investment, String description, Category category) {
 		this.name = name;
 		this.needed_investment = needed_investment;
-		this.discription = discription;
+		this.description = description;
 		this.category = category;
 	}
 
@@ -171,13 +170,13 @@ public class Startup {
 	public Startup() {
 	}
 
-	public Startup(String name, Blob image, Blob attachment, int currnet_investment, int needed_investment, String discription, Double rating, String status, Category category) {
+	public Startup(String name, Blob image, Blob attachment, int currnet_investment, int needed_investment, String description, Double rating, String status, Category category) {
 		this.name = name;
 		this.image = image;
 		this.attachment = attachment;
-		this.currnet_investment = currnet_investment;
+		this.current_investment = current_investment;
 		this.needed_investment = needed_investment;
-		this.discription = discription;
+		this.description = description;
 		this.rating = rating;
 		this.status = status;
 		this.category = category;
@@ -208,16 +207,13 @@ public class Startup {
 		return "Startup{" +
 				"id=" + id +
 				", name='" + name + '\'' +
-				", currnet_investment=" + currnet_investment +
+				", current_investment=" + current_investment +
 				", needed_investment=" + needed_investment +
-				", discription='" + discription + '\'' +
+				", description='" + description + '\'' +
 				", rating=" + rating +
 				", status='" + status + '\'' +
 				", category=" + category +
 				'}';
 	}
 
-	public String getDescription() {
-		return description;
-	}
 }

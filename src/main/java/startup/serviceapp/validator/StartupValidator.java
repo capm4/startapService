@@ -37,7 +37,7 @@ public class StartupValidator implements Validator {
 		if (startup.getName().length()< 5 || startup.getName().length() > 32){
 			errors.rejectValue("name", "Size.startupForm.name");
 		}
-		if(startup.getDiscription().length()<10 || startup.getDiscription().length()>2500){
+		if(startup.getDescription().length()<10 || startup.getDescription().length()>2500){
 			errors.rejectValue("description", "Size.startupForm.description");
 		}
 		if(startup.getNeeded_investment() < 0){

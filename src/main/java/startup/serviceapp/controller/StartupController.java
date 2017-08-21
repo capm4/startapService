@@ -144,7 +144,7 @@ public class StartupController extends HttpServlet {
 		return "redirect:/startupdetails/{id}";
 	}
 
-	@RequestMapping(value = "/startupdetails/{id}")
+	@RequestMapping(value = "/startupdetails/reject/{id}")
 	public String reject(@PathVariable("id") long id){
 		this.startupService.reject(id);
 		return "redirect:/startupdetails/{id}";

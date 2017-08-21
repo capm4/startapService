@@ -86,7 +86,7 @@ public class StartupServiceImp implements StartupService {
 	public void close(long id) {
 		Startup startup = startupRepository.findById(id);
 		startup.setStatus("Closed");
-		startup.setCurrnet_investment(0);
+		startup.setCurrent_investment(0);
 		startupRepository.save(startup);
 	}
 
@@ -206,7 +206,7 @@ public class StartupServiceImp implements StartupService {
 	@Transactional
 	public void invest(long startupId, int investment) {
 		Startup startup = startupRepository.findById(startupId);
-		startup.setCurrnet_investment(startup.getCurrnet_investment() + investment);
+		startup.setCurrent_investment(startup.getCurrent_investment() + investment);
 		startupRepository.save(startup);
 	}
 
