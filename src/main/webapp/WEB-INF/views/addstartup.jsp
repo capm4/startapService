@@ -17,7 +17,7 @@
     <h2>Add new startup</h2>
     <br/>
 
-    <form:form method="post" modelAttribute="starrupForm" class="form-horizontal">
+    <form:form method="post" modelAttribute="startupForm" class="form-horizontal">
 
         <div class="form-group">
             <label class="control-label col-sm-2" for="name">Name:</label>

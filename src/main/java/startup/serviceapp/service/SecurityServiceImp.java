@@ -31,13 +31,8 @@ public class SecurityServiceImp implements SecurityService {
 
 
 	@Override
-	@Transactional
 	public String getLoggedUserLogin() {
-		Object userDetails = SecurityContextHolder.getContext().getAuthentication().getDetails();
-		if (userDetails instanceof UserDetails) {
-			return ((UserDetails) userDetails).getUsername();
-		}
-		return null;
+		return ((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
 	}
 
 	@Override

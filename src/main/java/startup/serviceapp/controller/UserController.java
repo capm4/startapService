@@ -89,6 +89,7 @@ public class UserController {
 		return "login";
 	}
 
+
 	@RequestMapping(value = "userdetails", method = RequestMethod.GET)
 	public String userDetails(Model model){
 		model.addAttribute("userForm", userService.findByLogin(securityService.getLoggedUserLogin()));
@@ -96,12 +97,10 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "userdetails", method = RequestMethod.POST)
-	public String userDetails(@ModelAttribute("userForm") UserDB userForm,
-	                          Model model, HttpServletRequest request){
+	public String userDetails(@ModelAttribute("userForm") UserDB userForm, Model model, HttpServletRequest request){
 		userForm.setRoles(userService.findByLogin(userForm.getLogin()).getRoles());
 		userForm.setPassword(userService.findByLogin(userForm.getLogin()).getPassword());
 		userForm.setStartups(userService.getAuthenticatedUser(request).getStartups());
-
 		userService.saveWithoutEncode(userForm);
 		return "userdetails";
 	}

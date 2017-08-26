@@ -27,7 +27,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2">Investments received:</label>
             <div class="col-sm-10">
-                <p class="form-control-static">${startup.currnet_investment}</p>
+                <p class="form-control-static">${startup.current_investment}</p>
             </div>
         </div>
         <div class="form-group">

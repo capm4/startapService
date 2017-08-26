@@ -43,7 +43,7 @@ public class StartupController extends HttpServlet {
 	}
 
 	@RequestMapping(value="addstartup", method = RequestMethod.POST)
-	public String addStartup(@ModelAttribute("starrupForm") Startup startupForm,
+	public String addStartup(@ModelAttribute("startupForm") Startup startupForm,
 	                         @RequestParam("categoryId") long categoryId, BindingResult bindingResult, HttpServletRequest request){
 		startupValidator.validate(startupForm, bindingResult);
 		if (!userService.isAuthenticated(request)) {

@@ -19,7 +19,6 @@
             padding: 0 200px 15px 0;
             border-bottom: 1px solid #E5E5E5;
         }
-
         .bs-example {
             margin: 20px;
         }
@@ -37,7 +36,7 @@
             <a class="navbar-brand" href="<c:url value="/allstartups"/>">STARTUP PLATFORM</a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="<c:url value="/addstartup"/>">Add Staetup</a>
+            <li><a href="<c:url value="/addstartup"/>">Add Startup</a>
         </ul>
         <ul class="nav navbar-nav">
         </ul>

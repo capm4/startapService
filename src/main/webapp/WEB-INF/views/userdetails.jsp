@@ -3,7 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>${pageContext.request.getRemoteUser()}details</title>
+    <title>${pageContext.request.getRemoteUser()} details</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -67,7 +67,7 @@
                             <button type="submit" class="btn btn-primary">Edit profile</button>
                         </div>
                         <div class="col-sm-3">
-                            <a href="<c:url var="/allstartups"/>" class="btn btn-ghost">Cancel</a>
+                            <a href="<c:url value="/allstartups"/>" class="btn btn-ghost">Cancel</a>
                         </div>
                     </div>
                 </fieldset>
