@@ -21,11 +21,12 @@
 
         <div class="form-group">
             <label class="control-label col-sm-2" for="name">Name:</label>
-                <spring:bind path="name">
-                <div class=${status.error ? 'has-error': 'col-sm-10'}>
+            <spring:bind path="name">
+                <div class="${status.error ? 'has-error': 'col-sm-10'}">
                     <form:input path="name" type="text" class="form-control"
                                 id="name" placeholder="Enter new startups name"/>
                     <form:errors path="name"/>
+
                 </div>
             </spring:bind>
         </div>

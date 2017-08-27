@@ -41,7 +41,7 @@ public class StartupValidator implements Validator {
 			errors.rejectValue("description", "Size.startupForm.description");
 		}
 		if(startup.getNeeded_investment() < 0){
-			errors.rejectValue("neededInvestment", "Size.startupForm.neededInvestment");
+			errors.rejectValue("needed_investment", "Size.startupForm.neededInvestment");
 		}
 		if(startupService.findByName(startup.getName()) != null){
 			errors.rejectValue("name", "Duplicate.startupForm.name");

@@ -10,8 +10,11 @@
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
     <!--Error messages location-->
-    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource" p:basename="/WEB-INF/messages/validation"/>
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource" p:basename="WEB-INF/messages/validators"/>
 
+    <!--<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">-->
+        <!--<property name="basename" value="WEB-INF/messages/validators" />-->
+    <!--</bean>-->
     <!--Views location and configuration-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">

@@ -29,7 +29,7 @@
                             </h4>
                             <h4>
                                 <small>Already gathered:</small>
-                                <p>${startup.currnet_investment}</p>
+                                <p>${startup.current_investment}</p>
                             </h4>
                             <h4>
                                 <small>Status:</small>

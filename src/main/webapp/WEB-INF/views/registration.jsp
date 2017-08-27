@@ -24,7 +24,7 @@
 </head>
 <body>
 <div class="modal-dialog">
-    <form:form method="post" modelAttribute="userForm" class="loginmodal-container">]
+    <form:form method="post" modelAttribute="userForm" class="loginmodal-container">
         <h1>Create Your Account</h1>
         <spring:bind path="login">
             <div class="${status.error ? 'has-error' : ''}">
