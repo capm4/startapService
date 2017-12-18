@@ -16,12 +16,12 @@ INSERT INTO startup (startup_name, current_investment, needed_investment, descri
 
 INSERT INTO user (first_name, last_name, phone_number, email, country, city, login, password, is_active) VALUES
   ("Admin", "Admin", "000-00-00", "admin@gmail.com", "USA", "Chicago", "admin",
-   "$2y$10$AVkgr2sa6WXJRRbSD6zi7eaChsQef7WhnhoXMj6jEuHyzqjisWjfC", 1),
-  ("Maria", "Anders", "111-22-33", "Maria.anders@gmail.com", "Ukraine", "Kyiv", "manders", "12345678", 1),
-  ("Antonio", "Moreno", "222-33-44", "Antonio.moreno@gmail.com", "Italy", "Turin", "amoreno", "12345678", 1),
-  ("Thomas", "Hardy", "333-44-55", "Thomas.Hardy@gmail.com", "Greece", "Sparta", "thardy", "12345678", 1),
-  ("Hanna", "Moos", "444-55-66", "Hanna.moos@gmail.com", "Hungary", "Budapest", "hmoos", "12345678", 1),
-  ("Martin", "Sommer", "555-66-77", "Martin.sommer@gmail.com", "Germany", "Berlin", "msommer", "12345678", 1);
+   "$2a$11$s/XA/33mxJuvORUi/kskfeMcu5h3fUB9OsLIcwXoVfswIt.pvx1EW", 1),
+  ("Maria", "Anders", "111-22-33", "Maria.anders@gmail.com", "Ukraine", "Kyiv", "manders", "$2a$11$zSeb0Euf0ZhFgcTnBFeDGusufrRzDZD/8VshSj6/b13.cckNvyd9.", 1),
+  ("Antonio", "Moreno", "222-33-44", "Antonio.moreno@gmail.com", "Italy", "Turin", "amoreno", "$2a$11$zSeb0Euf0ZhFgcTnBFeDGusufrRzDZD/8VshSj6/b13.cckNvyd9.", 1),
+  ("Thomas", "Hardy", "333-44-55", "Thomas.Hardy@gmail.com", "Greece", "Sparta", "thardy", "$2a$11$zSeb0Euf0ZhFgcTnBFeDGusufrRzDZD/8VshSj6/b13.cckNvyd9.", 1),
+  ("Hanna", "Moos", "444-55-66", "Hanna.moos@gmail.com", "Hungary", "Budapest", "hmoos", "$2a$11$zSeb0Euf0ZhFgcTnBFeDGusufrRzDZD/8VshSj6/b13.cckNvyd9.", 1),
+  ("Martin", "Sommer", "555-66-77", "Martin.sommer@gmail.com", "Germany", "Berlin", "msommer", "$2a$11$zSeb0Euf0ZhFgcTnBFeDGusufrRzDZD/8VshSj6/b13.cckNvyd9.", 1);
 
 INSERT INTO startup_evaluation (user_id, startup_id, mark) VALUES
   (3, 1, 1),
